@@ -7,3 +7,6 @@ edition = "2021"
 
 [dependencies]
 static-rc = "0.6.1"
+
+[profile.release]
+debug = true
