@@ -24,11 +24,16 @@ def print_game(game_state):
             output += "_ "
     print(output)
 
+def get_guess():
+    guess = input()
+    return guess[0].lower()
+
 def play():
+    word = choose_word(words)
     all_found = False
     lives = 5
-    word = choose_word(words)
     game_state = []
+    guesses = []
     for letter in word:
         game_state.append(Letter(letter, False))
     print("Welcome to Hangman!")
@@ -40,12 +45,14 @@ def play():
         else:
             print(f"You have {lives} lives!")
         print_game(game_state)
-        guess = input(("Please guess a letter!\n"))
+        print("Please guess a letter!")
+        guess = get_guess()
         while(not guess.isalpha() or guess in guesses):
             if(guess in guesses):
-                guess = input("You already guessed this letter, please enter a new letter!\n")
+                print("You already guessed this letter, please enter a new letter!")
             if(not guess.isalpha()):
-                guess = input("Please enter a valid letter!\n")
+                print("Please enter a valid letter!\n")
+            guess = get_guess()
         guesses.append(guess)
         if(not guess in word):
             lives -= 1
