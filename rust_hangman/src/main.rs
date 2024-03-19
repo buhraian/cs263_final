@@ -39,7 +39,7 @@ fn main() {
                 println!("Please enter a valid letter!");
             }
             if user_guesses.contains(&guess) {
-                println!("You alread guessed this letter, please enter a new letter!");
+                println!("You already guessed this letter, please enter a new letter!");
             }
             guess = get_guess();
         }

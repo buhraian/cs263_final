@@ -1,6 +1,5 @@
 [package]
 name = "rust_hangman"
 
-
 [dependencies]
 rand = "0.5"
